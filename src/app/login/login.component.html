@@ -1,0 +1,47 @@
+
+        <h1 >Login</h1>
+<body>
+<section  fxFlex fxLayout="column" fxLayoutAlign="center center">
+    <form [formGroup]="libLoginForm"  (ngSubmit)="onLogin()">
+       <div>
+        <div>
+           <mat-form-field>
+             <input type="text" 
+            matInput 
+            placeholder="Enter your email" 
+            formControlName="email"
+            email
+            required
+            >
+            <mat-error >Field must not be empty</mat-error>
+            <mat-error >Email is invalid</mat-error>
+            </mat-form-field >
+        </div>
+        <div>
+          <mat-form-field hintlable="Should be atleast 6 characters long">
+          <input type="password"
+             matInput 
+             placeholder="Enter your password" 
+             formControlName="password"
+             required
+             minlength="6"
+             >
+         
+            <mat-hint lable="Should be atleast 6 characters long">{{ pwInput?.value.length }}/6 </mat-hint>
+            <mat-error>Has to be atleast 6 characters</mat-error>
+            </mat-form-field>
+         </div>
+
+
+        <div class="btn-group">  
+           <button type="Login" mat-raised-button color="primary" onclick="window.location.href='./home'" [disabled]="libLoginForm.invalid">Login</button>
+           <button type="Register" onclick="window.location.href='./signup'" mat-raised-button color="primary">Register</button>
+         </div>
+  
+     
+        </div>
+    </form>
+    </section>
+</body>
+   
+    
